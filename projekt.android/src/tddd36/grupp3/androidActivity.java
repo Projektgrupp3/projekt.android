@@ -1,6 +1,5 @@
 package tddd36.grupp3;
 
-import tddd36.grupp3.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
