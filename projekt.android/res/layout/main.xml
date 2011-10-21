@@ -9,7 +9,5 @@
     android:layout_height="wrap_content" 
     android:text="@string/hello"
     />
-<EditText android:id="@+id/editText1" android:layout_width="match_parent" android:layout_height="wrap_content">
-    <requestFocus></requestFocus>
-</EditText>
+<SeekBar android:id="@+id/seekBar1" android:layout_height="wrap_content" android:layout_width="match_parent"></SeekBar>
 </LinearLayout>
