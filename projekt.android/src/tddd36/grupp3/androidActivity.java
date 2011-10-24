@@ -12,5 +12,8 @@ public class androidActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         Log.d("Fel1","HŠr blev det fel");
+        Log.d("Fel1","HŠr blev det fel");
+        Log.d("Fel1","HŠr blev det fel");
+        Log.d("Fel1","HŠr blev det fel");
     }
 }
