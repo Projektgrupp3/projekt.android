@@ -2,6 +2,7 @@ package tddd36.grupp3;
 
 import tddd36.grupp3.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,16 +37,28 @@ public class androidActivity extends Activity {
 				}
 				else{
 					display.setText("Loggar in...");
+//					Intent openMenu = new Intent("tddd36.grupp3.MENU");
+//					startActivity(openMenu);
+
+
 
 				}
 
 
 
 			};
+			
 		});
-
-
+		
 
 
 	}
+
+//	@Override
+//	protected void onPause() {
+//		// TODO Auto-generated method stub
+//		super.onPause();
+//		finish();
+//		
+//	}
 }
