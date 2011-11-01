@@ -2,6 +2,9 @@ package tddd36.grupp3;
 
 import tddd36.grupp3.R;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,12 +33,21 @@ public class androidActivity extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				display.setText("Loggar in...");
 				if (user.getText().length() == 0||pass.getText().length() == 0) {
-					display.setText("Du måste fylla i uppgifterna");
+					AlertDialog login = new AlertDialog.Builder(androidActivity.this).create();
+					
+					login.setMessage("Felaktigt användarnamn eller lösenord");
+					login.setButton("OK", new DialogInterface.OnClickListener(){
+						public void onClick(DialogInterface dialog, int which) { 	
+						}
+					});
+					login.show();
 				}
 				else{
 					display.setText("Loggar in...");
+					
+					 Intent myIntent = new Intent(v.getContext(), activity2.class);
+		                startActivityForResult(myIntent, 0);
 
 				}
 
