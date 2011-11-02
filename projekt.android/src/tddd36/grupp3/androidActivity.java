@@ -45,19 +45,28 @@ public class androidActivity extends Activity {
 				}
 				else{
 					display.setText("Loggar in...");
-					
-					 Intent myIntent = new Intent(v.getContext(), activity2.class);
-		                startActivityForResult(myIntent, 0);
+					Intent openMenu = new Intent("tddd36.grupp3.MENU");
+					startActivity(openMenu);
 
 				}
 
 
 
 			};
+			
 		});
+		
 
 
 
 
+	}
+
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		finish();
+		
 	}
 }
