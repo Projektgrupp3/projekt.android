@@ -21,12 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".activity2"></activity>
-=======
-        
-        
->>>>>>> refs/heads/Thomas
 
     </application>
 </manifest>
