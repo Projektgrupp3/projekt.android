@@ -37,8 +37,8 @@ public class androidActivity extends Activity {
 				}
 				else{
 					display.setText("Loggar in...");
-//					Intent openMenu = new Intent("tddd36.grupp3.MENU");
-//					startActivity(openMenu);
+					Intent openMenu = new Intent("tddd36.grupp3.MENU");
+					startActivity(openMenu);
 
 
 
@@ -52,13 +52,15 @@ public class androidActivity extends Activity {
 		
 
 
+
+
 	}
 
-//	@Override
-//	protected void onPause() {
-//		// TODO Auto-generated method stub
-//		super.onPause();
-//		finish();
-//		
-//	}
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		finish();
+		
+	}
 }

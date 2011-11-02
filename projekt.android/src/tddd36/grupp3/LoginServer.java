@@ -15,7 +15,7 @@ public class LoginServer {
 					Socket client = s.accept();
 					System.out.println("<Server>: Connection with client established.");			
 					PrintWriter out = new PrintWriter(client.getOutputStream(),true);			
-					out.println(new java.util.Date().toString());	
+					out.println("hej");	
 					client.close();
 				}
 			} catch (IOException e) {
