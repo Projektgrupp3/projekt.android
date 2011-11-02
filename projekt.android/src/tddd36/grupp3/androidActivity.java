@@ -4,16 +4,15 @@ import tddd36.grupp3.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class androidActivity extends Activity {
+	
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -32,6 +31,7 @@ public class androidActivity extends Activity {
 		login.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
+			
 				// TODO Auto-generated method stub
 				if (user.getText().length() == 0||pass.getText().length() == 0) {
 					AlertDialog login = new AlertDialog.Builder(androidActivity.this).create();
@@ -42,22 +42,17 @@ public class androidActivity extends Activity {
 						}
 					});
 					login.show();
+					
 				}
 				else{
 					display.setText("Loggar in...");
-					
-					 Intent myIntent = new Intent(v.getContext(), activity2.class);
-		                startActivityForResult(myIntent, 0);
-
+						
+					/*Intent myIntent = new Intent(v.getContext(), activity2.class);
+		                startActivityForResult(myIntent, 0); */ //Hoppar till provisorisk sida
 				}
-
-
-
+				
+				
 			};
 		});
-
-
-
-
 	}
 }
