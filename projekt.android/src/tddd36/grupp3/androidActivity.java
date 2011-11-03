@@ -83,7 +83,6 @@ public class androidActivity extends Activity {
 				startActivity(openMenu);
 			}
 		}
-
 	}
 
 	@Override
