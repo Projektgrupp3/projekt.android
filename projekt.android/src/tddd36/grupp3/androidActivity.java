@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class androidActivity extends Activity {
-	private static final String COM_IP = "130.236.226.95";
+	private static final String COM_IP = "130.236.226.217";
 	private static final int COM_PORT = 4444;
 	private Socket client;
 	private InputStreamReader isr;
@@ -62,7 +62,7 @@ public class androidActivity extends Activity {
 		isr = new InputStreamReader(client.getInputStream());
 		pw = new PrintWriter(client.getOutputStream(),true);
 		br = new BufferedReader(isr);
-		//Sendin username and password to server
+		//Sending username and password to server
 		pw.println(user.getText());
 		pw.println(pass.getText());
 		//Checking if username & password is authenticated to login
@@ -78,9 +78,9 @@ public class androidActivity extends Activity {
 				login.show();
 			}
 			else{
-				//If authenticated user travels to mainmenu
-				Intent openMenu = new Intent("tddd36.grupp3.MENU");
-				startActivity(openMenu);
+				//If authenticated user travels to choosUnit
+				Intent chooseUnit = new Intent("tddd36.grupp3.CHOOSEUNIT");
+				startActivity(chooseUnit);
 			}
 		}
 	}

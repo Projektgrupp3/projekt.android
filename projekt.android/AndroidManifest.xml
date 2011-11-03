@@ -16,6 +16,13 @@
 				<action android:name="tddd36.grupp3.MENU" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
+			
+		</activity>
+				<activity android:name=".chooseUnit" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="tddd36.grupp3.CHOOSEUNIT" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
 		</activity>
 
 	</application>
