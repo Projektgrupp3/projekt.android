@@ -20,15 +20,15 @@ import android.widget.TextView;
 public class androidActivity extends Activity {
 	private static final String COM_IP = "130.236.226.95";
 	private static final int COM_PORT = 4444;
-	Socket client;
-	InputStreamReader isr;
-	PrintWriter pw;
-	BufferedReader br;
-	TextView display;
-	EditText user;
-	EditText pass;
-	String serverOutput;
-	Button login;
+	private Socket client;
+	private InputStreamReader isr;
+	private PrintWriter pw;
+	private BufferedReader br;
+	private TextView display;
+	private EditText user;
+	private EditText pass;
+	private String serverOutput;
+	private Button login;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -47,10 +47,8 @@ public class androidActivity extends Activity {
 				try {
 					login();
 				} catch (UnknownHostException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			};
@@ -58,15 +56,16 @@ public class androidActivity extends Activity {
 	}
 
 	public void login() throws UnknownHostException, IOException {
-
+		//Connecting client with server
 		client = new Socket(COM_IP,COM_PORT);
+		//Setting up streams
 		isr = new InputStreamReader(client.getInputStream());
 		pw = new PrintWriter(client.getOutputStream(),true);
 		br = new BufferedReader(isr);
-
+		//Sendin username and password to server
 		pw.println(user.getText());
 		pw.println(pass.getText());
-
+		//Checking if username & password is authenticated to login
 		if((serverOutput = br.readLine()) != ""){
 			if(!serverOutput.equals("Authenticated")) {
 				AlertDialog login = new AlertDialog.Builder(androidActivity.this).create();
@@ -79,7 +78,7 @@ public class androidActivity extends Activity {
 				login.show();
 			}
 			else{
-
+				//If authenticated user travels to mainmenu
 				Intent openMenu = new Intent("tddd36.grupp3.MENU");
 				startActivity(openMenu);
 			}
@@ -89,7 +88,7 @@ public class androidActivity extends Activity {
 
 	@Override
 	protected void onPause() {
-		// TODO Auto-generated method stub
+		//finish login activity when traveling to mainmenu
 		super.onPause();
 		finish();
 	}
