@@ -40,38 +40,10 @@ public class androidActivity extends Activity {
 		user = (EditText) findViewById(R.id.editText1);
 		login = (Button) findViewById(R.id.button1);
 		display = (TextView)findViewById(R.id.textView3);
-		
-		try {
-			
-			client = new Socket(COM_IP,COM_PORT);
-			isr = new InputStreamReader(client.getInputStream());
-			pw = new PrintWriter(client.getOutputStream(),true);
-			br = new BufferedReader(isr);
-
-			
-		} catch (UnknownHostException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
 
 		login.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				if (user.getText().length() == 0|| pass.getText().length() == 0) {
-					AlertDialog login = new AlertDialog.Builder(androidActivity.this).create();
-					login.setMessage("Felaktigt användarnamn eller lösenord");
-					login.setButton("OK", new DialogInterface.OnClickListener(){
-						public void onClick(DialogInterface dialog, int which) { 	
-						}
-					});
-					login.show();
-				}
-
 				try {
 					login();
 				} catch (UnknownHostException e) {
@@ -86,20 +58,33 @@ public class androidActivity extends Activity {
 	}
 
 	public void login() throws UnknownHostException, IOException {
-		
-		String userName = ""+user.getText();
-		String passWord = ""+pass.getText();
 
-		pw.println("david");
-		pw.println("davidbuo");
+		client = new Socket(COM_IP,COM_PORT);
+		isr = new InputStreamReader(client.getInputStream());
+		pw = new PrintWriter(client.getOutputStream(),true);
+		br = new BufferedReader(isr);
+
+		pw.println(user.getText());
+		pw.println(pass.getText());
 
 		if((serverOutput = br.readLine()) != ""){
-			System.out.println("Server: "+serverOutput);
-			if(!serverOutput.equals("Authenticated")) System.exit(0);
+			if(!serverOutput.equals("Authenticated")) {
+				AlertDialog login = new AlertDialog.Builder(androidActivity.this).create();
+				login.setMessage("Felaktigt anvŠndarnamn eller lšsenord");
+				login.setButton("OK", new DialogInterface.OnClickListener(){
+					public void onClick(DialogInterface dialog, int which) { 	
+					}
+				});
+				pass.setText("");
+				login.show();
+			}
+			else{
+
+				Intent openMenu = new Intent("tddd36.grupp3.MENU");
+				startActivity(openMenu);
+			}
 		}
 
-		Intent openMenu = new Intent("tddd36.grupp3.MENU");
-		startActivity(openMenu);
 	}
 
 	@Override
